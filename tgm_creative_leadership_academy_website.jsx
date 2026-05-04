@@ -5,7 +5,7 @@ import createGlobe from "cobe";
 import heroImage from "./src/images/hero-image.png";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 22 },
+  hidden: { opacity: 1, y: 0 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 };
 
@@ -200,7 +200,7 @@ export default function TgmAcademyWebsite() {
         <GlobeBackground />
         <div className="relative z-10 grid items-center gap-12 lg:grid-cols-2">
           <motion.div
-            initial={{ opacity: 0, y: 18 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
@@ -218,7 +218,7 @@ export default function TgmAcademyWebsite() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 24 }}
+            initial={{ opacity: 1, x: 0 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="hidden lg:block"
@@ -354,7 +354,7 @@ export default function TgmAcademyWebsite() {
       <section id="experience" className="relative mx-auto max-w-7xl px-5 py-24 lg:px-8">
         <motion.div
           className="overflow-hidden rounded-[2rem] border border-[#c7a45d]/20 bg-[#c7a45d]/[0.07] p-8 md:p-12 lg:p-16"
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={vp}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
@@ -501,7 +501,7 @@ export default function TgmAcademyWebsite() {
 
           <motion.div
             className="mt-14 rounded-[2rem] border border-[#c7a45d]/25 bg-[#c7a45d]/[0.08] p-8 md:flex md:items-center md:justify-between md:p-10"
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={vp}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
