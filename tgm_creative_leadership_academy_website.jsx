@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { ArrowRight, CalendarDays, CheckCircle2, Crown, GraduationCap, Handshake, Menu, Sparkles, UsersRound } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import createGlobe from "cobe";
-import heroImage from "./src/images/hero-image.png";
 
 const fadeUp = {
   hidden: { opacity: 1, y: 0 },
@@ -217,18 +216,6 @@ export default function TgmAcademyWebsite() {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 1, x: 0 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="hidden lg:block"
-          >
-            <img
-              src={heroImage}
-              alt="TGM Creative Leadership Academy"
-              className="w-full"
-            />
-          </motion.div>
         </div>
 
         <motion.div
