@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ArrowRight, CalendarDays, CheckCircle2, Crown, GraduationCap, Handshake, Menu, Sparkles, UsersRound } from "lucide-react";
 import { motion, useInView } from "framer-motion";
-import createGlobe from "cobe";
+import heroImage from "./src/images/hero-image.png";
 
 const fadeUp = {
   hidden: { opacity: 1, y: 0 },
@@ -68,52 +68,6 @@ const stats = [
   { target: 50, suffix: " Fellows", label: "A selective first cohort in Lagos" },
   { target: 30, suffix: " Days", label: "Classes, workshops, mentorship, and fireside sessions" },
 ];
-
-function GlobeBackground() {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    let phi = 0.6;
-    const globe = createGlobe(canvasRef.current, {
-      devicePixelRatio: 2,
-      width: 800 * 2,
-      height: 800 * 2,
-      phi: 0.6,
-      theta: 0.15,
-      dark: 1,
-      diffuse: 1.4,
-      mapSamples: 20000,
-      mapBrightness: 8,
-      baseColor: [0.25, 0.25, 0.25],
-      markerColor: [0.78, 0.643, 0.365],
-      glowColor: [0.65, 0.5, 0.25],
-      markers: [
-        { location: [6.5244, 3.3792], size: 0.07 },   // Lagos
-        { location: [30.0444, 31.2357], size: 0.05 },  // Cairo
-        { location: [-1.2921, 36.8219], size: 0.05 },  // Nairobi
-        { location: [5.36, -4.0083], size: 0.04 },     // Abidjan
-        { location: [-26.2041, 28.0473], size: 0.05 }, // Johannesburg
-        { location: [14.6928, -17.4467], size: 0.04 }, // Dakar
-        { location: [3.848, 11.5021], size: 0.04 },    // Yaoundé
-      ],
-      onRender: (state) => {
-        state.phi = phi;
-        phi += 0.0018;
-      },
-    });
-    return () => globe.destroy();
-  }, []);
-
-  return (
-    <div className="pointer-events-none absolute inset-0 flex items-center justify-end overflow-hidden">
-      <canvas
-        ref={canvasRef}
-        style={{ width: 800, height: 800 }}
-        className="translate-x-32 opacity-60"
-      />
-    </div>
-  );
-}
 
 function SectionLabel({ children }) {
   return (
@@ -196,7 +150,6 @@ export default function TgmAcademyWebsite() {
 
       {/* Hero */}
       <section id="top" className="relative mx-auto max-w-7xl px-5 pb-24 pt-20 lg:px-8 lg:pb-32 lg:pt-28">
-        <GlobeBackground />
         <div className="relative z-10 grid items-center gap-12 lg:grid-cols-2">
           <motion.div
             initial={{ opacity: 1, y: 0 }}
@@ -216,6 +169,18 @@ export default function TgmAcademyWebsite() {
             </div>
           </motion.div>
 
+          <motion.div
+            initial={{ opacity: 1, x: 0 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="hidden lg:block"
+          >
+            <img
+              src={heroImage}
+              alt="TGM Creative Leadership Academy"
+              className="w-full"
+            />
+          </motion.div>
         </div>
 
         <motion.div
