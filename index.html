@@ -7,6 +7,20 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      const isLocal =
+        location.hostname === "localhost" ||
+        location.hostname === "127.0.0.1";
+
+      if (!isLocal) {
+        const stylesheet = document.createElement("link");
+        stylesheet.rel = "stylesheet";
+        stylesheet.href = "/assets/index-BsFuE61S.css";
+        document.head.appendChild(stylesheet);
+
+        import("/assets/index-BAen359c.js");
+      }
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
