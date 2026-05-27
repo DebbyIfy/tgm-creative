@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ArrowRight, CalendarDays, CheckCircle2, Crown, GraduationCap, Handshake, Menu, Sparkles, UsersRound } from "lucide-react";
+import { ArrowRight, CalendarDays, CheckCircle2, Crown, GraduationCap, Handshake, Menu, Sparkles, UsersRound, X } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import heroImage from "./src/images/hero-image.png";
 
@@ -37,36 +37,37 @@ function Counter({ target, suffix }) {
 }
 
 const modules = [
-  "Foundations of Talent Management",
-  "Leadership in the Creative Industry",
-  "Identity Conversion",
-  "Contracting & Negotiation",
-  "Brand Strategy & Career Development",
-  "Financial Literacy & Fundraising",
-  "Industry Structures",
+  "Creative Industry Landscape",
+  "Talent Discovery & Representation",
+  "Positioning & Branding",
+  "Growth Strategy",
   "Monetization & Sustainability",
-  "Networking & Relationship Management",
+  "Contracts & Legal Frameworks",
+  "Negotiation & Deal-Making",
+  "PR, Media & Communications",
+  "Operations & Talent Systems",
+  "Building a Talent Management Business",
 ];
 
 const outcomes = [
-  "Understand the structure and business of talent management",
-  "Build ethical leadership and decision-making frameworks",
-  "Learn negotiation, contracts, and career development basics",
-  "Develop strategic thinking for managing creative talent",
-  "Join a growing alumni network of creative industry leaders",
+  "Understand the creative industry landscape and the business role of a talent manager",
+  "Build practical systems for discovering, representing, positioning, and growing talent",
+  "Learn contracts, negotiation, monetization, PR, media, communications, and operations",
+  "Develop a capstone talent management plan and present it on Demo Day",
+  "Access mentorship, industry exposure, alumni support, and opportunity pathways",
 ];
 
 const steps = [
   "Online application with bio, statement of interest, and career goals",
-  "Screening review by the Academy Team",
+  "Screening review by the TGM Academy team",
   "Video interview for top 75 applicants",
-  "Final selection of 50 participants",
+  "Final selection and onboarding for the first cohort",
 ];
 
 const stats = [
-  { target: 6, suffix: " Weeks", label: "Focused leadership and industry training" },
-  { target: 50, suffix: " Fellows", label: "A selective first cohort in Lagos" },
-  { target: 30, suffix: " Days", label: "Classes, workshops, mentorship, and fireside sessions" },
+  { target: 6, suffix: " Weeks", label: "Immersive talent management training" },
+  { target: 10, suffix: " Modules", label: "Execution-driven curriculum" },
+  { target: 1, suffix: " Demo Day", label: "Capstone presentation and industry exposure" },
 ];
 
 function SectionLabel({ children }) {
@@ -78,9 +79,14 @@ function SectionLabel({ children }) {
   );
 }
 
-function PrimaryButton({ children = "Apply Now" }) {
+function PrimaryButton({ children = "Join the Waitlist" }) {
   return (
-    <a href="#apply" className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#c7a45d] px-6 py-3 text-sm font-semibold text-[#111111] transition hover:bg-[#e1bf75]">
+    <a
+      href="https://forms.cloud.microsoft/r/Yi3LZcWENZ"
+      target="_blank"
+      rel="noreferrer"
+      className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#c7a45d] px-6 py-3 text-sm font-semibold text-[#111111] transition hover:bg-[#e1bf75]"
+    >
       {children}
       <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
     </a>
@@ -112,6 +118,10 @@ function FeatureCard({ icon: Icon, title, body }) {
 }
 
 export default function TgmAcademyWebsite() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
+
   return (
     <main className="min-h-screen bg-[#080808] text-white antialiased">
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
@@ -119,21 +129,21 @@ export default function TgmAcademyWebsite() {
         <div className="absolute bottom-[-20%] right-[-10%] h-[520px] w-[520px] rounded-full bg-[#1f3a5f]/20 blur-[150px]" />
       </div>
 
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#080808]/80 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#080808]/90 backdrop-blur-xl">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-          <a href="#top" className="flex items-center gap-3">
+          <a href="#top" onClick={closeMobileMenu} className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#c7a45d]/40 bg-[#c7a45d]/10">
               <Crown className="h-5 w-5 text-[#c7a45d]" />
             </div>
             <div>
               <p className="text-sm font-semibold tracking-wide">TGM Academy</p>
-              <p className="text-xs text-white/45">Creative Leadership</p>
+              <p className="text-xs text-white/45">Talent Manager Accelerator</p>
             </div>
           </a>
 
           <div className="hidden items-center gap-8 text-sm text-white/62 md:flex">
             <a href="#about" className="hover:text-white">About</a>
-            <a href="#program" className="hover:text-white">Program</a>
+            <a href="#program" className="hover:text-white">Programme</a>
             <a href="#experience" className="hover:text-white">Experience</a>
             <a href="#apply" className="hover:text-white">Apply</a>
           </div>
@@ -142,10 +152,42 @@ export default function TgmAcademyWebsite() {
             <PrimaryButton />
           </div>
 
-          <button className="rounded-full border border-white/10 p-2 md:hidden" aria-label="Open menu">
-            <Menu className="h-5 w-5" />
+          <button
+            type="button"
+            className="rounded-full border border-white/10 p-2 text-white transition hover:border-white/25 hover:bg-white/[0.05] md:hidden"
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation"
+            onClick={() => setIsMobileMenuOpen((open) => !open)}
+          >
+            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </nav>
+
+        {isMobileMenuOpen && (
+          <div id="mobile-navigation" className="border-t border-white/10 bg-[#080808] px-5 py-5 md:hidden">
+            <div className="mx-auto flex max-w-7xl flex-col gap-1">
+              {[
+                { href: "#about", label: "About" },
+                { href: "#program", label: "Programme" },
+                { href: "#experience", label: "Experience" },
+                { href: "#apply", label: "Apply" },
+              ].map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={closeMobileMenu}
+                  className="rounded-2xl px-4 py-3 text-base font-medium text-white/75 transition hover:bg-white/[0.05] hover:text-white"
+                >
+                  {item.label}
+                </a>
+              ))}
+              <div className="mt-4 px-1">
+                <PrimaryButton />
+              </div>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Hero */}
@@ -158,14 +200,14 @@ export default function TgmAcademyWebsite() {
           >
             <SectionLabel>Presented by That Good Media</SectionLabel>
             <h1 className="text-5xl font-semibold tracking-[-0.055em] text-white md:text-7xl">
-              Raising the Leaders Behind the Legends
+              TGM Academy
             </h1>
             <p className="mt-8 text-lg leading-8 text-white/68 md:text-xl md:leading-9">
-              TGM Creative Leadership Academy is building the next generation of talent managers equipped to lead, structure, and scale creative careers across Africa's entertainment industry.
+              Home of the Talent Manager Accelerator Programme, a six-week, execution-driven course that prepares industry-ready talent managers for the realities of Africa's creative economy.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <PrimaryButton />
-              <SecondaryButton>Explore Program</SecondaryButton>
+              <SecondaryButton>Explore Programme</SecondaryButton>
             </div>
           </motion.div>
 
@@ -177,7 +219,7 @@ export default function TgmAcademyWebsite() {
           >
             <img
               src={heroImage}
-              alt="TGM Creative Leadership Academy"
+              alt="TGM Academy"
               className="w-full"
             />
           </motion.div>
@@ -212,14 +254,14 @@ export default function TgmAcademyWebsite() {
         >
           <motion.div variants={fadeUp}>
             <SectionLabel>The Industry Gap</SectionLabel>
-            <h2 className="text-4xl font-semibold tracking-[-0.04em] md:text-6xl">Talent is visible. Leadership remains informal.</h2>
+            <h2 className="text-4xl font-semibold tracking-[-0.04em] md:text-6xl">Talent is visible. Management remains informal.</h2>
           </motion.div>
           <motion.div variants={fadeUp} className="space-y-6 text-lg leading-9 text-white/65">
             <p>
-              Africa's creative economy is expanding, but the people responsible for shaping sustainable careers behind the scenes often enter the industry without formal structure, training, or leadership preparation.
+              Africa's creative economy is expanding, but many of the people responsible for shaping sustainable careers behind the scenes enter the industry without formal training, business structure, or professional support systems.
             </p>
             <p>
-              The academy exists to professionalize talent management by raising ethical, strategic, and globally competitive leaders who can support artists, creatives, and entertainment businesses with clarity and responsibility.
+              TGM Academy exists to professionalize talent management by raising ethical, strategic, and globally competitive managers who can support artists, creatives, and entertainment businesses with clarity and responsibility.
             </p>
           </motion.div>
         </motion.div>
@@ -241,7 +283,7 @@ export default function TgmAcademyWebsite() {
             A new standard for leadership in talent management.
           </motion.h2>
           <motion.p variants={fadeUp} className="mt-7 text-lg leading-9 text-white/65">
-            Organized by That Good Media, TGM Creative Leadership Academy is a leadership-focused training program for emerging talent managers and creative industry professionals. Its philosophy is rooted in wholesome, value-based, and ethical leadership.
+            Organized by That Good Media, TGM Academy is a training and development platform for emerging creative industry professionals. Its flagship course, the Talent Manager Accelerator Programme, is built around execution, practical learning, industry access, and value-based representation.
           </motion.p>
         </motion.div>
 
@@ -252,9 +294,9 @@ export default function TgmAcademyWebsite() {
           whileInView="visible"
           viewport={vp}
         >
-          <FeatureCard icon={GraduationCap} title="Structured Learning" body="A six-week curriculum designed to blend leadership development with practical creative industry training." />
-          <FeatureCard icon={Sparkles} title="Creative Industry Edge" body="Focused on film, music, television, digital storytelling, and the realities of modern talent management." />
-          <FeatureCard icon={Handshake} title="Industry Access" body="Fireside conversations, mentorship, networking, and exposure to experienced creative industry leaders." />
+          <FeatureCard icon={GraduationCap} title="10-Module Curriculum" body="A six-week journey from creative industry context to discovery, positioning, monetization, contracts, operations, and business building." />
+          <FeatureCard icon={Sparkles} title="Execution-Driven Learning" body="Video lessons, live sessions, case studies, assignments, and applied exercises designed around real talent management decisions." />
+          <FeatureCard icon={Handshake} title="Industry Access" body="Mentorship, fireside conversations, introductions, networking, and exposure to experienced entertainment and creative business leaders." />
         </motion.div>
       </section>
 
@@ -269,13 +311,13 @@ export default function TgmAcademyWebsite() {
               viewport={vp}
             >
               <motion.div variants={fadeUp}>
-                <SectionLabel>Program Overview</SectionLabel>
+                <SectionLabel>Programme Overview</SectionLabel>
               </motion.div>
               <motion.h2 variants={fadeUp} className="text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
-                Built for depth, discipline, and transformation.
+                Talent Manager Accelerator Programme.
               </motion.h2>
               <motion.p variants={fadeUp} className="mt-7 text-lg leading-8 text-white/62">
-                The academy runs physically in Lagos for six weeks, Monday to Friday, combining classes, workshops, case studies, mentorship, and weekly industry conversations.
+                The flagship programme runs for six weeks through a virtual and live delivery model, combining recorded lessons, live sessions, practical assignments, case studies, mentorship, industry conversations, and a capstone Demo Day.
               </motion.p>
             </motion.div>
 
@@ -320,7 +362,7 @@ export default function TgmAcademyWebsite() {
                 Fireside conversations with industry leaders.
               </motion.h2>
               <motion.p variants={fadeUp} className="mt-7 max-w-2xl text-lg leading-9 text-white/68">
-                Every Friday, fellows learn from experienced professionals through real-world conversations on leadership, career-building, negotiation, industry challenges, and ethical standards.
+                Participants learn from experienced professionals through real-world conversations on representation, career-building, negotiation, PR, media, operations, industry challenges, and ethical standards.
               </motion.p>
             </motion.div>
 
@@ -335,7 +377,7 @@ export default function TgmAcademyWebsite() {
                 <CalendarDays className="mb-8 h-8 w-8 text-[#c7a45d]" />
               </motion.div>
               <div className="space-y-4">
-                {["Monday–Tuesday: Leadership Classes", "Wednesday: Practical Workshops", "Thursday: Creative Leadership Classes", "Friday: Mentorship, Networking & Fireside Sessions"].map((item) => (
+                {["Recorded video lessons for module foundations", "Live sessions for discussion, application, and feedback", "Assignments, quizzes, and case studies for practical execution", "Fireside chats, mentorship, networking, and Demo Day exposure"].map((item) => (
                   <motion.div key={item} variants={fadeUp} className="flex items-start gap-3 text-white/72">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#c7a45d]" />
                     <span>{item}</span>
@@ -355,7 +397,7 @@ export default function TgmAcademyWebsite() {
               <SectionLabel>Outcomes</SectionLabel>
             </motion.div>
             <motion.h2 variants={fadeUp} className="text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
-              Leave with clarity, confidence, and industry readiness.
+              Leave with a practical talent management playbook.
             </motion.h2>
           </motion.div>
 
@@ -391,9 +433,9 @@ export default function TgmAcademyWebsite() {
             className="rounded-[2rem] border border-white/10 bg-white/[0.035] p-8 md:p-10"
           >
             <UsersRound className="mb-8 h-8 w-8 text-[#c7a45d]" />
-            <h2 className="text-3xl font-semibold tracking-[-0.035em] md:text-5xl">For emerging creative industry leaders.</h2>
+            <h2 className="text-3xl font-semibold tracking-[-0.035em] md:text-5xl">For emerging talent managers.</h2>
             <p className="mt-6 text-lg leading-8 text-white/62">
-              Open to young professionals and aspiring managers aged 18–35 interested in talent management, artist management, film and television representation, creative entrepreneurship, entertainment law, production management, and creative leadership.
+              Designed for aspiring and early-stage talent managers, artist managers, PR and media professionals, brand and marketing professionals, creative entrepreneurs, business professionals in film, music, sport, fashion, television and digital media, and friends or founders supporting emerging talent.
             </p>
           </motion.div>
           <motion.div
@@ -402,9 +444,9 @@ export default function TgmAcademyWebsite() {
             className="rounded-[2rem] border border-white/10 bg-white/[0.035] p-8 md:p-10"
           >
             <Crown className="mb-8 h-8 w-8 text-[#c7a45d]" />
-            <h2 className="text-3xl font-semibold tracking-[-0.035em] md:text-5xl">A selective fellowship experience.</h2>
+            <h2 className="text-3xl font-semibold tracking-[-0.035em] md:text-5xl">A selective accelerator experience.</h2>
             <p className="mt-6 text-lg leading-8 text-white/62">
-              The first cohort will welcome 50 selected participants who demonstrate leadership potential, clarity of vision, and commitment to the creative industry.
+              The first cohort will welcome selected participants who demonstrate potential, discipline, clarity of vision, and commitment to building sustainable creative careers.
             </p>
           </motion.div>
         </motion.div>
@@ -424,10 +466,10 @@ export default function TgmAcademyWebsite() {
               <SectionLabel>Application Process</SectionLabel>
             </motion.div>
             <motion.h2 variants={fadeUp} className="text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
-              Apply to become a TGM Leadership Fellow.
+              Apply for the Talent Manager Accelerator Programme.
             </motion.h2>
             <motion.p variants={fadeUp} className="mt-7 text-lg leading-9 text-white/65">
-              Applications are reviewed through a structured selection process designed to identify committed, high-potential participants ready to grow into creative industry leaders.
+              Applications are reviewed through a structured selection process designed to identify committed, high-potential participants ready to grow into professional talent managers.
             </motion.p>
           </motion.div>
 
@@ -459,8 +501,8 @@ export default function TgmAcademyWebsite() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
             <div>
-              <h3 className="text-2xl font-semibold tracking-[-0.02em]">Ready to lead behind the next generation of legends?</h3>
-              <p className="mt-3 text-white/62">Start your application for the first cohort.</p>
+              <h3 className="text-2xl font-semibold tracking-[-0.02em]">Ready to manage the next generation of creative talent?</h3>
+              <p className="mt-3 text-white/62">Start your application for the first Talent Manager Accelerator cohort.</p>
             </div>
             <div className="mt-6 md:mt-0">
               <PrimaryButton />
@@ -471,10 +513,10 @@ export default function TgmAcademyWebsite() {
 
       <footer className="relative border-t border-white/10 px-5 py-10 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 text-sm text-white/45 md:flex-row md:items-center md:justify-between">
-          <p>© 2026 TGM Creative Leadership Academy. Presented by That Good Media.</p>
+          <p>© 2026 TGM Academy. Presented by That Good Media.</p>
           <div className="flex gap-5">
             <a href="#about" className="hover:text-white">About</a>
-            <a href="#program" className="hover:text-white">Program</a>
+            <a href="#program" className="hover:text-white">Programme</a>
             <a href="#apply" className="hover:text-white">Apply</a>
           </div>
         </div>
