@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ArrowRight, CalendarDays, CheckCircle2, GraduationCap, Handshake, Menu, Sparkles, UsersRound, X } from "lucide-react";
 import { motion, useInView } from "framer-motion";
-import heroImage from "./src/images/hero-image.png";
-import logoBlue from "./src/images/tgma-logo-coloured.png";
+import heroImage from "./images/hero-image.png";
+import logoBlue from "./images/tgma-logo-coloured.png";
 
 const fadeUp = {
   hidden: { opacity: 1, y: 0 },
