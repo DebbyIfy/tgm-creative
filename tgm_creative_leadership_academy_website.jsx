@@ -512,7 +512,8 @@ export default function TgmAcademyWebsite() {
             <img src={logoBlue} alt="TGM Academy" className="h-9 w-auto" />
             <p>© 2026 TGM Academy. Presented by That Good Media.</p>
           </div>
-          <div className="flex gap-5">
+          <div className="flex flex-wrap items-center gap-5">
+            <a href="mailto:admissions@tgmacademy.org" className="hover:text-[#363A97]">admissions@tgmacademy.org</a>
             <a href="#about" className="hover:text-[#363A97]">About</a>
             <a href="#program" className="hover:text-[#363A97]">Programme</a>
             <a href="#apply" className="hover:text-[#363A97]">Apply</a>
