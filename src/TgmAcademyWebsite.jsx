@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ArrowRight, CalendarDays, CheckCircle2, GraduationCap, Handshake, Menu, Sparkles, UsersRound, X } from "lucide-react";
+import { ArrowRight, CalendarDays, CheckCircle2, GraduationCap, Handshake, Menu, Sparkles, UsersRound, Wallet, X } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import heroImage from "./images/hero-image.png";
 import logoBlue from "./images/tgma-logo-coloured.png";
@@ -474,8 +474,24 @@ export default function TgmAcademyWebsite() {
                 Apply for the Talent Manager Accelerator Programme.
               </motion.h2>
               <motion.p variants={fadeUp} className="mt-7 text-lg leading-9 text-[#35394D]">
-                Applications are reviewed through a structured selection process designed to identify committed, high-potential participants ready to grow into professional talent managers.
+                This Programme is a premium 6-week learning experience designed to equip aspiring and practicing talent managers with the knowledge, practical skills, and network required to build successful careers in talent management.
               </motion.p>
+
+              <motion.div
+                variants={fadeUp}
+                className="mt-8 inline-flex items-center gap-4 rounded-2xl border border-[#363A97]/15 bg-white px-6 py-5 shadow-sm shadow-[#363A97]/5"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#EA4D25]/10">
+                  <Wallet className="h-6 w-6 text-[#EA4D25]" />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[#363A97]/60">Programme Fee</p>
+                  <p className="text-2xl font-bold leading-tight text-[#31356E]" style={{ fontFamily: "Poppins, Inter, ui-sans-serif, system-ui" }}>
+                    ₦250,000
+                  </p>
+                  <p className="text-sm text-[#35394D]/70">Two Hundred and Fifty Thousand Naira</p>
+                </div>
+              </motion.div>
             </motion.div>
 
             <motion.div
