@@ -135,7 +135,7 @@ export default function TgmAcademyWebsite() {
           <span className="inline-flex items-center rounded-full bg-[#EA4D25] px-2.5 py-0.5 text-xs font-bold uppercase tracking-wide text-white">
             Cohort 1
           </span>
-          Applications for the Talent Manager Accelerator Programme are now open
+          Applications for the Talent Management Accelerator Programme are now open
           <ArrowRight className="h-3.5 w-3.5" />
         </a>
       </div>
@@ -208,7 +208,7 @@ export default function TgmAcademyWebsite() {
               TGM Academy
             </h1>
             <p className="mt-8 text-lg leading-8 text-[#35394D] md:text-xl md:leading-9">
-              Home of the Talent Manager Accelerator Programme, a six-week, execution-driven course that prepares industry-ready talent managers for the realities of Africa's creative economy.
+              Home of the Talent Management Accelerator Programme, a six-week, execution-driven course that prepares industry-ready talent managers for the realities of Africa's creative economy.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <PrimaryButton />
@@ -288,7 +288,7 @@ export default function TgmAcademyWebsite() {
             A new standard for leadership in talent management.
           </motion.h2>
           <motion.p variants={fadeUp} className="mt-7 text-lg leading-9 text-[#35394D]">
-            Organized by That Good Media, TGM Academy is a training and development platform for emerging creative industry professionals. Its flagship course, the Talent Manager Accelerator Programme, is built around execution, practical learning, industry access, and value-based representation.
+            Organized by That Good Media, TGM Academy is a training and development platform for emerging creative industry professionals. Its flagship course, the Talent Management Accelerator Programme, is built around execution, practical learning, industry access, and value-based representation.
           </motion.p>
         </motion.div>
 
@@ -319,7 +319,7 @@ export default function TgmAcademyWebsite() {
                 <SectionLabel>Programme Overview</SectionLabel>
               </motion.div>
               <motion.h2 variants={fadeUp} className="text-4xl font-bold leading-tight tracking-[-0.02em] md:text-6xl" style={{ fontFamily: "Poppins, Inter, ui-sans-serif, system-ui" }}>
-                Talent Manager Accelerator Programme.
+                Talent Management Accelerator Programme.
               </motion.h2>
               <motion.p variants={fadeUp} className="mt-7 text-lg leading-8 text-white/72">
                 The flagship programme runs for six weeks through a virtual and live delivery model, combining recorded lessons, live sessions, practical assignments, case studies, mentorship, industry conversations, and a capstone Demo Day.
@@ -471,7 +471,7 @@ export default function TgmAcademyWebsite() {
                 <SectionLabel>Application Process</SectionLabel>
               </motion.div>
               <motion.h2 variants={fadeUp} className="text-4xl font-bold leading-tight tracking-[-0.02em] text-[#31356E] md:text-6xl" style={{ fontFamily: "Poppins, Inter, ui-sans-serif, system-ui" }}>
-                Apply for the Talent Manager Accelerator Programme.
+                Apply for the Talent Management Accelerator Programme.
               </motion.h2>
               <motion.p variants={fadeUp} className="mt-7 text-lg leading-9 text-[#35394D]">
                 This Programme is a premium 6-week learning experience designed to equip aspiring and practicing talent managers with the knowledge, practical skills, and network required to build successful careers in talent management.
@@ -503,7 +503,7 @@ export default function TgmAcademyWebsite() {
             >
               <img
                 src={cohort1Flyer}
-                alt="TGM Academy Cohort 1 application flyer for the Talent Manager Accelerator Programme"
+                alt="TGM Academy Cohort 1 application flyer for the Talent Management Accelerator Programme"
                 className="w-full rounded-2xl border border-[#363A97]/10 shadow-xl shadow-[#363A97]/15"
               />
             </motion.div>
@@ -538,7 +538,7 @@ export default function TgmAcademyWebsite() {
           >
             <div>
               <h3 className="text-2xl font-bold tracking-[-0.02em] text-[#31356E]">Ready to manage the next generation of creative talent?</h3>
-              <p className="mt-3 text-[#35394D]">Start your application for the first Talent Manager Accelerator cohort.</p>
+              <p className="mt-3 text-[#35394D]">Start your application for the first Talent Management Accelerator cohort.</p>
             </div>
             <div className="mt-6 md:mt-0">
               <PrimaryButton />
