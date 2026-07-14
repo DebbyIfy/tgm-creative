@@ -3,6 +3,7 @@ import { ArrowRight, CalendarDays, CheckCircle2, GraduationCap, Handshake, Menu,
 import { motion, useInView } from "framer-motion";
 import heroImage from "./images/hero-image.png";
 import logoBlue from "./images/tgma-logo-coloured.png";
+import cohort1Flyer from "./images/cohort1-flyer.png";
 
 const fadeUp = {
   hidden: { opacity: 1, y: 0 },
@@ -38,16 +39,12 @@ function Counter({ target, suffix }) {
 }
 
 const modules = [
-  "Creative Industry Landscape",
-  "Talent Discovery & Representation",
-  "Positioning & Branding",
-  "Growth Strategy",
-  "Monetization & Sustainability",
-  "Contracts & Legal Frameworks",
-  "Negotiation & Deal-Making",
-  "PR, Media & Communications",
-  "Operations & Talent Systems",
-  "Building a Talent Management Business",
+  "Foundations of Talent Management & The Creative Industry Landscape",
+  "Talent Discovery, Evaluation & Product Value",
+  "Branding, PR, Audience Growth and Amplification",
+  "Business Models, Financing, Contracts & Negotiation",
+  "Ethics, Emotional Intelligence & Crisis Management",
+  "Scaling Careers, Teams & The Future of Talent Management",
 ];
 
 const outcomes = [
@@ -67,7 +64,7 @@ const steps = [
 
 const stats = [
   { target: 6, suffix: " Weeks", label: "Immersive talent management training" },
-  { target: 10, suffix: " Modules", label: "Execution-driven curriculum" },
+  { target: 6, suffix: " Modules", label: "Execution-driven curriculum" },
   { target: 1, suffix: " Demo Day", label: "Capstone presentation and industry exposure" },
 ];
 
@@ -128,6 +125,19 @@ export default function TgmAcademyWebsite() {
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
         <div className="absolute left-[-12%] top-[-18%] h-[520px] w-[520px] rounded-full bg-[#363A97]/10 blur-[120px]" />
         <div className="absolute bottom-[-20%] right-[-10%] h-[520px] w-[520px] rounded-full bg-[#363A97]/10 blur-[150px]" />
+      </div>
+
+      <div className="relative z-[60] bg-[#31356E] px-5 py-2.5 text-center lg:px-8">
+        <a
+          href="#apply"
+          className="inline-flex flex-wrap items-center justify-center gap-2 text-sm font-medium text-white hover:underline"
+        >
+          <span className="inline-flex items-center rounded-full bg-[#EA4D25] px-2.5 py-0.5 text-xs font-bold uppercase tracking-wide text-white">
+            Cohort 1
+          </span>
+          Applications for the Talent Manager Accelerator Programme are now open
+          <ArrowRight className="h-3.5 w-3.5" />
+        </a>
       </div>
 
       <header className="sticky top-0 z-50 border-b border-[#363A97]/10 bg-white/90 backdrop-blur-xl">
@@ -289,7 +299,7 @@ export default function TgmAcademyWebsite() {
           whileInView="visible"
           viewport={vp}
         >
-          <FeatureCard icon={GraduationCap} title="10-Module Curriculum" body="A six-week journey from creative industry context to discovery, positioning, monetization, contracts, operations, and business building." />
+          <FeatureCard icon={GraduationCap} title="6-Module Curriculum" body="A six-week journey from creative industry foundations to talent discovery, branding, business models, ethics, and scaling a talent management career." />
           <FeatureCard icon={Sparkles} title="Execution-Driven Learning" body="Video lessons, live sessions, case studies, assignments, and applied exercises designed around real talent management decisions." />
           <FeatureCard icon={Handshake} title="Industry Access" body="Mentorship, fireside conversations, introductions, networking, and exposure to experienced entertainment and creative business leaders." />
         </motion.div>
@@ -450,23 +460,38 @@ export default function TgmAcademyWebsite() {
       {/* Apply */}
       <section id="apply" className="relative border-t border-[#363A97]/10 bg-[#F3F4FF] px-5 py-24 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <motion.div
-            className="max-w-3xl"
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={vp}
-          >
-            <motion.div variants={fadeUp}>
-              <SectionLabel>Application Process</SectionLabel>
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={vp}
+            >
+              <motion.div variants={fadeUp}>
+                <SectionLabel>Application Process</SectionLabel>
+              </motion.div>
+              <motion.h2 variants={fadeUp} className="text-4xl font-bold leading-tight tracking-[-0.02em] text-[#31356E] md:text-6xl" style={{ fontFamily: "Poppins, Inter, ui-sans-serif, system-ui" }}>
+                Apply for the Talent Manager Accelerator Programme.
+              </motion.h2>
+              <motion.p variants={fadeUp} className="mt-7 text-lg leading-9 text-[#35394D]">
+                Applications are reviewed through a structured selection process designed to identify committed, high-potential participants ready to grow into professional talent managers.
+              </motion.p>
             </motion.div>
-            <motion.h2 variants={fadeUp} className="text-4xl font-bold leading-tight tracking-[-0.02em] text-[#31356E] md:text-6xl" style={{ fontFamily: "Poppins, Inter, ui-sans-serif, system-ui" }}>
-              Apply for the Talent Manager Accelerator Programme.
-            </motion.h2>
-            <motion.p variants={fadeUp} className="mt-7 text-lg leading-9 text-[#35394D]">
-              Applications are reviewed through a structured selection process designed to identify committed, high-potential participants ready to grow into professional talent managers.
-            </motion.p>
-          </motion.div>
+
+            <motion.div
+              initial={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={vp}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="mx-auto w-full max-w-xs lg:max-w-sm"
+            >
+              <img
+                src={cohort1Flyer}
+                alt="TGM Academy Cohort 1 application flyer for the Talent Manager Accelerator Programme"
+                className="w-full rounded-2xl border border-[#363A97]/10 shadow-xl shadow-[#363A97]/15"
+              />
+            </motion.div>
+          </div>
 
           <motion.div
             className="mt-14 grid gap-4 md:grid-cols-4"
