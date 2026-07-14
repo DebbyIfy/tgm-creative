@@ -77,10 +77,10 @@ function SectionLabel({ children }) {
   );
 }
 
-function PrimaryButton({ children = "Join the Waitlist" }) {
+function PrimaryButton({ children = "Apply Now" }) {
   return (
     <a
-      href="https://forms.cloud.microsoft/r/Yi3LZcWENZ"
+      href="https://forms.gle/AT3xGgg1oJeG3peu5"
       target="_blank"
       rel="noreferrer"
       className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#EA4D25] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#EA4D25]/20 transition hover:bg-[#cf3f1d]"
