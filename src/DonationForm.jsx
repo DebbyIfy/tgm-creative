@@ -364,7 +364,7 @@ export default function DonationForm() {
                           : "border-[#363A97]/15 bg-white text-[#31356E] hover:border-[#363A97]/30"
                       }`}
                     >
-                      {tier}% off
+                      {tier}%
                     </button>
                   ))}
                 </div>
