@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ArrowRight, CalendarDays, CheckCircle2, GraduationCap, Handshake, Menu, Sparkles, UsersRound, Wallet, X } from "lucide-react";
+import { ArrowRight, CalendarDays, CheckCircle2, GraduationCap, Handshake, HeartHandshake, Menu, Sparkles, UsersRound, Wallet, X } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import heroImage from "./images/hero-image.png";
 import logoBlue from "./images/tgma-logo-coloured.png";
@@ -80,9 +80,7 @@ function SectionLabel({ children }) {
 function PrimaryButton({ children = "Apply Now" }) {
   return (
     <a
-      href="https://forms.gle/AT3xGgg1oJeG3peu5"
-      target="_blank"
-      rel="noreferrer"
+      href="/register"
       className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#EA4D25] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#EA4D25]/20 transition hover:bg-[#cf3f1d]"
     >
       {children}
@@ -95,6 +93,18 @@ function SecondaryButton({ children }) {
   return (
     <a href="#program" className="inline-flex items-center justify-center rounded-full border border-[#363A97]/20 bg-white px-6 py-3 text-sm font-semibold text-[#363A97] transition hover:border-[#EA4D25]/45 hover:bg-[#fff4f0]">
       {children}
+    </a>
+  );
+}
+
+function DonateButton() {
+  return (
+    <a
+      href="/donate"
+      className="inline-flex items-center justify-center gap-2 rounded-full border border-[#363A97]/20 bg-white px-6 py-3 text-sm font-semibold text-[#363A97] transition hover:border-[#EA4D25]/45 hover:bg-[#fff4f0]"
+    >
+      <HeartHandshake className="h-4 w-4" />
+      Donate
     </a>
   );
 }
@@ -153,7 +163,8 @@ export default function TgmAcademyWebsite() {
             <a href="#apply" className="hover:text-[#363A97]">Apply</a>
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden items-center gap-3 md:flex">
+            <DonateButton />
             <PrimaryButton />
           </div>
 
@@ -187,8 +198,9 @@ export default function TgmAcademyWebsite() {
                   {item.label}
                 </a>
               ))}
-              <div className="mt-4 px-1">
+              <div className="mt-4 flex flex-col gap-3 px-1">
                 <PrimaryButton />
+                <DonateButton />
               </div>
             </div>
           </div>
@@ -558,6 +570,7 @@ export default function TgmAcademyWebsite() {
             <a href="#about" className="hover:text-[#363A97]">About</a>
             <a href="#program" className="hover:text-[#363A97]">Programme</a>
             <a href="#apply" className="hover:text-[#363A97]">Apply</a>
+            <a href="/donate" className="hover:text-[#363A97]">Donate</a>
           </div>
         </div>
       </footer>
