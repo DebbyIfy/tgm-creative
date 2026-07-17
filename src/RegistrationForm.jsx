@@ -206,7 +206,7 @@ export default function RegistrationForm() {
     }
   };
 
-  const logRegistration = async (amountPaid, reference) => {
+  const logRegistration = async (paymentStatus, amountPaid = "", reference = "") => {
     if (!SUBMIT_ENDPOINT) return;
     const payload = {
       fullName: form.fullName,
@@ -226,6 +226,7 @@ export default function RegistrationForm() {
       goals: form.goals,
       hearAbout: form.hearAbout === "Other" ? form.hearAboutOther : form.hearAbout,
       discountCode: discountInfo?.code || "",
+      paymentStatus,
       amountPaid,
       reference,
       submittedAt: new Date().toISOString(),
@@ -237,7 +238,7 @@ export default function RegistrationForm() {
         body: JSON.stringify(payload),
       });
     } catch {
-      // Payment already succeeded; a logging failure here shouldn't block the registrant's confirmation.
+      // Best-effort logging; a failure here shouldn't block the registrant's flow either way.
     }
   };
 
@@ -251,6 +252,8 @@ export default function RegistrationForm() {
 
     setStatus("submitting");
     setStatusMessage("");
+
+    logRegistration("Payment Pending");
 
     try {
       await loadPaystackScript();
@@ -274,7 +277,7 @@ export default function RegistrationForm() {
         callback: function (response) {
           (async () => {
             if (discountInfo) await redeemDiscountCode(discountInfo.code);
-            logRegistration(finalAmount, response.reference);
+            logRegistration("Paid", finalAmount, response.reference);
             setThankYou(true);
             setStatus("idle");
           })();
