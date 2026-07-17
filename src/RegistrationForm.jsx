@@ -260,28 +260,35 @@ export default function RegistrationForm() {
       return;
     }
 
-    const handler = window.PaystackPop.setup({
-      key: PAYSTACK_PUBLIC_KEY,
-      email: form.email,
-      amount: Math.round(finalAmount * 100),
-      currency: "NGN",
-      metadata: {
-        fullName: form.fullName,
-        phone: form.phone,
-        discountCode: discountInfo?.code || "",
-      },
-      callback: async (response) => {
-        if (discountInfo) await redeemDiscountCode(discountInfo.code);
-        logRegistration(finalAmount, response.reference);
-        setThankYou(true);
-        setStatus("idle");
-      },
-      onClose: () => {
-        setStatus("idle");
-      },
-    });
+    try {
+      const handler = window.PaystackPop.setup({
+        key: PAYSTACK_PUBLIC_KEY,
+        email: form.email,
+        amount: Math.round(finalAmount * 100),
+        currency: "NGN",
+        metadata: {
+          fullName: form.fullName,
+          phone: form.phone,
+          discountCode: discountInfo?.code || "",
+        },
+        callback: function (response) {
+          (async () => {
+            if (discountInfo) await redeemDiscountCode(discountInfo.code);
+            logRegistration(finalAmount, response.reference);
+            setThankYou(true);
+            setStatus("idle");
+          })();
+        },
+        onClose: () => {
+          setStatus("idle");
+        },
+      });
 
-    handler.openIframe();
+      handler.openIframe();
+    } catch (err) {
+      setStatus("error");
+      setStatusMessage("We couldn't open the payment window. Please try again, or contact admissions@tgmacademy.org.");
+    }
   };
 
   if (thankYou) {

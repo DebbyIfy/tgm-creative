@@ -186,35 +186,42 @@ export default function DonationForm() {
 
     const amount = getAmount();
 
-    const handler = window.PaystackPop.setup({
-      key: PAYSTACK_PUBLIC_KEY,
-      email: form.email,
-      amount: Math.round(amount * 100),
-      currency: "NGN",
-      metadata: {
-        fullName: form.fullName,
-        phone: form.phone,
-        organisation: form.organisation,
-        anonymous: form.anonymous,
-        message: form.message,
-        sponsoring: sponsor,
-      },
-      callback: async (response) => {
-        let sponsorCode = null;
-        if (sponsor) {
-          sponsorCode = await createSponsorCode();
-          setSponsorResult(sponsorCode);
-        }
-        logDonation(amount, response.reference, sponsorCode);
-        setThankYou(true);
-        setStatus("idle");
-      },
-      onClose: () => {
-        setStatus("idle");
-      },
-    });
+    try {
+      const handler = window.PaystackPop.setup({
+        key: PAYSTACK_PUBLIC_KEY,
+        email: form.email,
+        amount: Math.round(amount * 100),
+        currency: "NGN",
+        metadata: {
+          fullName: form.fullName,
+          phone: form.phone,
+          organisation: form.organisation,
+          anonymous: form.anonymous,
+          message: form.message,
+          sponsoring: sponsor,
+        },
+        callback: function (response) {
+          (async () => {
+            let sponsorCode = null;
+            if (sponsor) {
+              sponsorCode = await createSponsorCode();
+              setSponsorResult(sponsorCode);
+            }
+            logDonation(amount, response.reference, sponsorCode);
+            setThankYou(true);
+            setStatus("idle");
+          })();
+        },
+        onClose: () => {
+          setStatus("idle");
+        },
+      });
 
-    handler.openIframe();
+      handler.openIframe();
+    } catch (err) {
+      setStatus("error");
+      setStatusMessage("We couldn't open the payment window. Please try again, or contact admissions@tgmacademy.org.");
+    }
   };
 
   if (thankYou) {
