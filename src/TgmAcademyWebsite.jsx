@@ -104,7 +104,7 @@ function DonateButton() {
       className="inline-flex items-center justify-center gap-2 rounded-full border border-[#363A97]/20 bg-white px-6 py-3 text-sm font-semibold text-[#363A97] transition hover:border-[#EA4D25]/45 hover:bg-[#fff4f0]"
     >
       <HeartHandshake className="h-4 w-4" />
-      Donate
+      Sponsor a Student
     </a>
   );
 }
