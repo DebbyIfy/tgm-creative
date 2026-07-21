@@ -107,7 +107,7 @@ export default function DonationForm() {
       }
       if (!preferredCode.trim()) next.preferredCode = "Enter a code you'd like to share with your sponsored registrants.";
     }
-    if (!understood) next.understood = "Please confirm you understand this is a voluntary donation.";
+    if (!understood) next.understood = "Please confirm you understand this is a voluntary sponsorship.";
     setErrors(next);
     return Object.keys(next).length === 0;
   };
@@ -285,7 +285,7 @@ export default function DonationForm() {
         <form onSubmit={handleSubmit} noValidate className="space-y-10 rounded-2xl border border-[#363A97]/10 bg-white p-6 shadow-xl shadow-[#363A97]/10 md:p-10">
           <div>
             <span className="mb-3 block text-sm font-semibold text-[#31356E]">
-              Donation Amount<span className="text-[#EA4D25]"> *</span>
+              Sponsorship Amount<span className="text-[#EA4D25]"> *</span>
             </span>
             <div className="grid gap-3 sm:grid-cols-2">
               {TIERS.map((tier) => {
@@ -346,7 +346,7 @@ export default function DonationForm() {
                 }}
                 className="mt-0.5 h-4 w-4 accent-[#EA4D25]"
               />
-              I'd like this donation to fund discounted registrations for others
+              I'd like this sponsorship to fund discounted registrations for others
             </label>
 
             {sponsor && (
@@ -371,7 +371,7 @@ export default function DonationForm() {
                 {errors.discountTier && <p className="mt-2 text-xs text-[#EA4D25]">{errors.discountTier}</p>}
                 {discountTier && getAmount() > 0 && getMaxUses() >= 1 && (
                   <p className="mt-3 text-sm leading-6 text-[#35394D]">
-                    Your {formatNaira(getAmount())} donation will fund <strong>{getMaxUses()}</strong> registration{getMaxUses() === 1 ? "" : "s"} at {discountTier}% off — each person pays {formatNaira(REGISTRATION_FEE * (1 - discountTier / 100))} themselves.
+                    Your {formatNaira(getAmount())} sponsorship will fund <strong>{getMaxUses()}</strong> registration{getMaxUses() === 1 ? "" : "s"} at {discountTier}% off — each person pays {formatNaira(REGISTRATION_FEE * (1 - discountTier / 100))} themselves.
                   </p>
                 )}
 
@@ -435,7 +435,7 @@ export default function DonationForm() {
               onChange={(e) => setUnderstood(e.target.checked)}
               className="mt-0.5 h-4 w-4 accent-[#EA4D25]"
             />
-            I understand that this contribution is a voluntary donation in support of the TGM Talent Management Academy.
+            I understand that this contribution is a voluntary sponsorship in support of the TGM Talent Management Academy.
           </label>
           {errors.understood && <p className="-mt-6 text-xs text-[#EA4D25]">{errors.understood}</p>}
 
@@ -454,7 +454,7 @@ export default function DonationForm() {
                 Processing...
               </>
             ) : (
-              "Donate Now"
+              "Sponsor Now"
             )}
           </button>
           <p className="flex items-center gap-2 text-xs text-[#35394D]/70">

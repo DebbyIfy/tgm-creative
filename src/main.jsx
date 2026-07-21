@@ -9,7 +9,7 @@ const route = window.location.pathname.replace(/\/+$/, "");
 
 function Router() {
   if (route === "/register") return <RegistrationForm />;
-  if (route === "/donate") return <DonationForm />;
+  if (route === "/sponsor") return <DonationForm />;
   return <TgmAcademyWebsite />;
 }
 

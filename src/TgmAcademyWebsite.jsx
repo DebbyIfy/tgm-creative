@@ -100,7 +100,7 @@ function SecondaryButton({ children }) {
 function DonateButton() {
   return (
     <a
-      href="/donate"
+      href="/sponsor"
       className="inline-flex items-center justify-center gap-2 rounded-full border border-[#363A97]/20 bg-white px-6 py-3 text-sm font-semibold text-[#363A97] transition hover:border-[#EA4D25]/45 hover:bg-[#fff4f0]"
     >
       <HeartHandshake className="h-4 w-4" />
@@ -570,7 +570,7 @@ export default function TgmAcademyWebsite() {
             <a href="#about" className="hover:text-[#363A97]">About</a>
             <a href="#program" className="hover:text-[#363A97]">Programme</a>
             <a href="#apply" className="hover:text-[#363A97]">Apply</a>
-            <a href="/donate" className="hover:text-[#363A97]">Donate</a>
+            <a href="/sponsor" className="hover:text-[#363A97]">Sponsor a Student</a>
           </div>
         </div>
       </footer>
