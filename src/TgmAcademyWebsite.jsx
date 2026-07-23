@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import heroImage from "./images/hero-image.png";
 import logoBlue from "./images/tgma-logo-coloured.png";
 import cohort1Flyer from "./images/cohort1-flyer.png";
+import useDocumentHead from "./useDocumentHead";
 
 const fadeUp = {
   hidden: { opacity: 1, y: 0 },
@@ -126,6 +127,12 @@ function FeatureCard({ icon: Icon, title, body }) {
 }
 
 export default function TgmAcademyWebsite() {
+  useDocumentHead({
+    title: "TGM Academy | Talent Management Accelerator Programme",
+    description:
+      "TGM Academy is a 6-week talent management accelerator programme for the creative industry, covering talent discovery, branding, contracts, and business models, culminating in a capstone Demo Day.",
+    path: "/",
+  });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);

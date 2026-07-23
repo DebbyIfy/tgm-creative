@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CheckCircle2, Copy, HeartHandshake, Loader2 } from "lucide-react";
 import logoBlue from "./images/tgma-logo-coloured.png";
+import useDocumentHead from "./useDocumentHead";
 
 const PAYSTACK_PUBLIC_KEY = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY || "";
 const SUBMIT_ENDPOINT = import.meta.env.VITE_DONATION_POWER_AUTOMATE_URL || "";
@@ -63,6 +64,12 @@ function loadPaystackScript() {
 }
 
 export default function DonationForm() {
+  useDocumentHead({
+    title: "Sponsor a Student | TGM Academy",
+    description:
+      "Sponsor a student's place in the TGM Academy Talent Management Accelerator Programme and help grow the next generation of creative-industry talent managers.",
+    path: "/sponsor",
+  });
   const [form, setForm] = useState(initialFormState);
   const [selectedTier, setSelectedTier] = useState(null);
   const [customAmount, setCustomAmount] = useState("");

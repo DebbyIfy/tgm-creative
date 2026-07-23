@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 import logoBlue from "./images/tgma-logo-coloured.png";
+import useDocumentHead from "./useDocumentHead";
 
 const REGISTRATION_FEE = 250000;
 const PAYSTACK_PUBLIC_KEY = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY || "";
@@ -97,6 +98,12 @@ function loadPaystackScript() {
 }
 
 export default function RegistrationForm() {
+  useDocumentHead({
+    title: "Register | TGM Academy",
+    description:
+      "Apply to the TGM Academy Talent Management Accelerator Programme — a 6-week, execution-driven curriculum for aspiring and practicing talent managers.",
+    path: "/register",
+  });
   const [form, setForm] = useState(initialFormState);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("idle");

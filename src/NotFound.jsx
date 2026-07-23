@@ -1,6 +1,12 @@
 import logoBlue from "./images/tgma-logo-coloured.png";
+import useDocumentHead from "./useDocumentHead";
 
 export default function NotFound() {
+  useDocumentHead({
+    title: "Page not found | TGM Academy",
+    description: "The page you're looking for doesn't exist or may have moved.",
+    path: "/404",
+  });
   return (
     <main
       className="flex min-h-screen items-center justify-center bg-[#F6F7FF] px-5 py-12 text-[#31356E] antialiased lg:px-8"
