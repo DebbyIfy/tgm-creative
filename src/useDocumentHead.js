@@ -19,7 +19,7 @@ export default function useDocumentHead({ title, description, path }) {
     setMeta("name", "twitter:title", title);
     setMeta("name", "twitter:description", description);
 
-    const url = `https://tgmacademy.org${path}`;
+    const url = `https://www.tgmacademy.org${path}`;
     setMeta("property", "og:url", url);
     let canonical = document.head.querySelector('link[rel="canonical"]');
     if (!canonical) {
