@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
+import ErrorBoundary from "./ErrorBoundary.jsx";
 import TgmAcademyWebsite from "./TgmAcademyWebsite.jsx";
 import RegistrationForm from "./RegistrationForm.jsx";
 import DonationForm from "./DonationForm.jsx";
@@ -21,6 +22,8 @@ function Router() {
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Router />
+    <ErrorBoundary>
+      <Router />
+    </ErrorBoundary>
   </StrictMode>
 );
